@@ -11,6 +11,8 @@ config globals 'globals'
 config device
 	option name 'br-lan'
 	option type 'bridge'
+	list ports 'lan1'
+	list ports 'lan2'
 	list ports 'lan3'
 	list ports 'lan4'
 
@@ -19,7 +21,7 @@ config interface 'lan'
 	option proto 'static'
 	option netmask '255.255.255.0'
 	option ip6assign '60'
-	option ipaddr '192.168.88.1'
+	option ipaddr '192.168.0.1'
 
 config interface 'wan'
 	option device 'wan'
@@ -28,27 +30,4 @@ config interface 'wan'
 config interface 'wan6'
 	option device 'wan'
 	option proto 'dhcpv6'
-
-config interface 'china_telecom'
-	option proto 'dhcp'
-	option device 'lan1'
-	option hostname '*'
-	option delegate '0'
-
-config device
-	option name 'lan1'
-
-config interface 'iptv_sdyx'
-	option proto 'static'
-	option device 'lan2'
-	option ipaddr '10.94.131.7'
-	option netmask '255.255.0.0'
-	option gateway '10.94.0.1'
-	option broadcast '10.94.255.255'
-	option delegate '0'
-
-config device
-	option name 'lan2'
-	option igmpversion '2'
-	option ipv6 '0'
 
